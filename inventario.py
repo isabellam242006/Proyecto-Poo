@@ -13,7 +13,7 @@ class Inventario:
         """
         if producto.id in self.lista_productos:
             print("El producto ya existe")
-            self.lista_productos[producto.id].cantidad += producto.cantidad
+            self.lista_productos[producto.id].unidades += producto.unidades
         self.lista_productos[producto.id] = producto
         print(f"Producto {producto.nombre} agregado al inventario")
 
@@ -53,8 +53,9 @@ class Inventario:
         for producto in self.lista_productos.values():
             print(f"ID: {producto.id}\n"
               f"Nombre: {producto.nombre}\n"
-              f"Precio: {producto.precio}\n"
-              f"Cantidad: {producto.cantidad}\n"
+              f"Precio por unidad: {producto.precio_unidad}\n"
+              f"Precio total: {producto.precio_total}\n"
+              f"Unidades: {producto.unidades}\n"
               f"Fecha de Ingreso: {producto.fecha_ingreso}\n"
               f"Fecha de actualización: {producto.fecha_actualización}\n"
               f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
