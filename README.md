@@ -32,19 +32,18 @@ classDiagram
         +Date fecha_ingreso
         +Date fecha_actualización
         +Date fecha_vencimiento
-        +actualizar_cantidad(int cantidad)
-        +productos() String
     }
     class Inventario {
         +Dictionary lista_productos
-        +agregar_producto(Producto producto)
-        +buscar_producto(String id) Producto
-        +eliminar_producto(String id) bool
-        +actualizar_producto(Producto producto) bool
-        +listar_productos() List
+        +agregar_producto()
+        +buscar_producto()
+        +eliminar_producto()
+        +actualizar_producto()
+        +listar_productos() 
         +imprimir_productos()
     }
     Inventario *-- Producto : contiene
+```
 ```
 - - - - - - - - - - - - - - - - - -
 Clases a utilizar:
