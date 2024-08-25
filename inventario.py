@@ -140,4 +140,4 @@ print(producto2.id)
 
 # Imprimir la lista de productos en el inventario
 inventario.imprimir_productos()
-
+inventario.listar_productos()
