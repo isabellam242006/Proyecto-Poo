@@ -3,6 +3,25 @@
 
 **Problema a solucionar**: Creación de un sistema que administre una bodega a través de un inventario.
 
+## Procesos importantes a tener en cuenta:
+
+- Registro en tiempo real de ingreso y salida de productos
+- Registro de los productos al momento de vencerse
+- Clasificación por rotación:
+   
+   - Existen productos que suelen quedarse por más tiempo que otros en la bodega, por eso es importante tener cuenta un estilo de clasificación de los mismos:
+     
+      - (A): Alta rotación
+      - (B): Rotación media
+      - (C): Rotación baja
+
+ Una forma de mirar esto, es analizar cuánto tiempo suele quedarse cierto producto en la bodega y asi mismo clasificarlo
+
+- Analizar qué productos tienen mayor salida
+- Representación monetaria de lo que se tiene en bodega
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -   - -
+
 Clases a utilizar:
 - Producto
 - Inventario
