@@ -44,7 +44,7 @@ classDiagram
     }
     Inventario *-- Producto : contiene
 ```
-```
+
 - - - - - - - - - - - - - - - - - -
 Clases a utilizar:
 - Producto
