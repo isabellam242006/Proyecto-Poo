@@ -21,7 +21,32 @@
 - Representación monetaria de lo que se tiene en bodega
 
 - - - - - - - - - - - - - - - - - - - - - - - - - -   - -
-
+Solución preliminar:
+```mermaid
+classDiagram
+    class Producto {
+        +String id
+        +String nombre
+        +float precio
+        +int cantidad
+        +Date fecha_ingreso
+        +Date fecha_actualización
+        +Date fecha_vencimiento
+        +actualizar_cantidad(int cantidad)
+        +productos() String
+    }
+    class Inventario {
+        +Dictionary lista_productos
+        +agregar_producto(Producto producto)
+        +buscar_producto(String id) Producto
+        +eliminar_producto(String id) bool
+        +actualizar_producto(Producto producto) bool
+        +listar_productos() List
+        +imprimir_productos()
+    }
+    Inventario *-- Producto : contiene
+```
+- - - - - - - - - - - - - - - - - -
 Clases a utilizar:
 - Producto
 - Inventario
@@ -103,28 +128,4 @@ def imprimir_productos(self):
               f"Fecha de actualización: {producto.fecha_actualización}\n"
               f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
 ```
-Solución preliminar:
-```mermaid
-classDiagram
-    class Producto {
-        +String id
-        +String nombre
-        +float precio
-        +int cantidad
-        +Date fecha_ingreso
-        +Date fecha_actualización
-        +Date fecha_vencimiento
-        +actualizar_cantidad(int cantidad)
-        +productos() String
-    }
-    class Inventario {
-        +Dictionary lista_productos
-        +agregar_producto(Producto producto)
-        +buscar_producto(String id) Producto
-        +eliminar_producto(String id) bool
-        +actualizar_producto(Producto producto) bool
-        +listar_productos() List
-        +imprimir_productos()
-    }
-    Inventario *-- Producto : contiene
-```
+
