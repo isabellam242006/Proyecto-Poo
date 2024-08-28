@@ -26,6 +26,7 @@ Solución preliminar:
 classDiagram
     class Producto {
         +String nombre
+        +String ID
         +float precio_unidad
         +float precio_total
         +int unidades
