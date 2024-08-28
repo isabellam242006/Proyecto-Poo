@@ -25,16 +25,34 @@ Solución preliminar:
 ```mermaid
 classDiagram
     class Producto {
-        +String id
         +String nombre
-        +float precio
-        +int cantidad
-        +Date fecha_ingreso
-        +Date fecha_actualización
-        +Date fecha_vencimiento
+        +float precio_unidad
+        +float precio_total
+        +int unidades
+        +Datetime fecha_ingreso
+        +Datetime fecha_salida
+        +DateTime fecha_vencimiento
+        +esta_vencido() bool
+        +detalles() str
+    }
+    class Frutas y verduras {
+        +String Estado del producto
+        +Calcular peso en kg()
+    }
+    class Congelados {
+        +float temperatura
+        +Calcular temperatura óptima()
+    }
+    class Empaquetados {
+        +String Calidad de empaque
+        +float calcular peso neto()
     }
     class Inventario {
-        +Dictionary lista_productos
+        +Dictionary productos
+        +registrar_entrada(Producto producto, int cantidad, DateTime fecha) None
+        +registrar_salida(Producto producto, int cantidad, DateTime fecha) None
+        +registrar_vencidos(DateTime fecha_actual) list
+        +valor_total_inventario() float
         +agregar_producto()
         +buscar_producto()
         +eliminar_producto()
@@ -42,7 +60,27 @@ classDiagram
         +listar_productos() 
         +imprimir_productos()
     }
+    class Clasificación_rotación {
+        +Datetime Fecha_ingreso
+        +Datetime Fecha_salida
+        +Calcular_permanencia_productos()
+        +Clasificar_producto() str
+    }
+    class Análisis {
+        +Productos_mayor_salida() list
+    }
+    class Reportes {
+        +Calcular_costo_total()
+        +Calcular_inversión()
+        +Calcular_pérdidas()
+    }
+    Frutas y verduras <|-- Producto
+    Congelados <|-- Producto
+    Empaquetados <|-- Producto
     Inventario *-- Producto : contiene
+    Clasificación_rotación --> Inventario : clasifica
+    Análisis --> Inventario : analiza
+    Reportes --> Inventario : reporta
 ```
 
 - - - - - - - - - - - - - - - - - -
