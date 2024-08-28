@@ -3,6 +3,87 @@
 
 **Problema a solucionar**: Creación de un sistema que administre una bodega a través de un inventario.
 
+## Procesos importantes a tener en cuenta:
+
+- Registro en tiempo real de ingreso y salida de productos
+- Registro de los productos al momento de vencerse
+- Clasificación por rotación:
+   
+   - Existen productos que suelen quedarse por más tiempo que otros en la bodega, por eso es importante tener cuenta un estilo de clasificación de los mismos:
+     
+      - (A): Alta rotación
+      - (B): Rotación media
+      - (C): Rotación baja
+
+ Una forma de mirar esto, es analizar cuánto tiempo suele quedarse cierto producto en la bodega y asi mismo clasificarlo
+
+- Analizar qué productos tienen mayor salida
+- Representación monetaria de lo que se tiene en bodega
+
+- - - - - - - - - - - - - - - - - - - - - - - - - -   - -
+Solución preliminar:
+```mermaid
+classDiagram
+    class Producto {
+        +String nombre
+        +float precio_unidad
+        +float precio_total
+        +int unidades
+        +Datetime fecha_ingreso
+        +Datetime fecha_salida
+        +DateTime fecha_vencimiento
+        +esta_vencido() bool
+        +detalles() str
+    }
+    class Frutas y verduras {
+        +String Estado del producto
+        +Calcular peso en kg()
+    }
+    class Congelados {
+        +float temperatura
+        +Calcular temperatura óptima()
+    }
+    class Empaquetados {
+        +String Calidad de empaque
+        +float calcular peso neto()
+    }
+    class Inventario {
+        +Dictionary productos
+        +registrar_entrada(Producto producto, int cantidad, DateTime fecha) None
+        +registrar_salida(Producto producto, int cantidad, DateTime fecha) None
+        +registrar_vencidos(DateTime fecha_actual) list
+        +valor_total_inventario() float
+        +agregar_producto()
+        +buscar_producto()
+        +eliminar_producto()
+        +actualizar_producto()
+        +listar_productos() 
+        +imprimir_productos()
+    }
+    class Clasificación_rotación {
+        +Datetime Fecha_ingreso
+        +Datetime Fecha_salida
+        +Calcular_permanencia_productos()
+        +Clasificar_producto() str
+    }
+    class Análisis {
+        +Productos_mayor_salida() list
+    }
+    class Reportes {
+        +Calcular_costo_total()
+        +Calcular_inversión()
+        +Calcular_pérdidas()
+    }
+    Frutas y verduras <|-- Producto
+    Congelados <|-- Producto
+    Empaquetados <|-- Producto
+    Inventario *-- Producto : contiene
+    Clasificación_rotación --> Inventario : clasifica
+    Análisis --> Inventario : analiza
+    Reportes --> Inventario : reporta
+```
+
+- - - - - - - - - - - - - - - - - -
 Clases a utilizar:
 - Producto
 - Inventario
@@ -84,28 +165,4 @@ def imprimir_productos(self):
               f"Fecha de actualización: {producto.fecha_actualización}\n"
               f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
 ```
-Solución preliminar:
-```mermaid
-classDiagram
-    class Producto {
-        +String id
-        +String nombre
-        +float precio
-        +int cantidad
-        +Date fecha_ingreso
-        +Date fecha_actualización
-        +Date fecha_vencimiento
-        +actualizar_cantidad(int cantidad)
-        +productos() String
-    }
-    class Inventario {
-        +Dictionary lista_productos
-        +agregar_producto(Producto producto)
-        +buscar_producto(String id) Producto
-        +eliminar_producto(String id) bool
-        +actualizar_producto(Producto producto) bool
-        +listar_productos() List
-        +imprimir_productos()
-    }
-    Inventario *-- Producto : contiene
-```
+
