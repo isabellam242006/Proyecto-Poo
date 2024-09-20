@@ -54,6 +54,14 @@ class Producto:
         self.fecha_actualización = None
         self.fecha_vencimiento = datetime.now() + timedelta(days=random.randint(1, 365 * 4))  
 
+    def __str__(self):
+        """Define cómo se imprime un objeto Producto."""
+        return f"Producto: {self.nombre}, Marca: {self.marca}"
+
+    def __repr__(self):
+        """Define una representación más detallada del objeto Producto."""
+        return f"<Producto(nombre={self.nombre}, precio={self.precio_unidad}, unidades={self.unidades})>"
+
 
 if __name__ == "__main__":
     producto_1 = Producto("Arroz", 5000, 100, "Diana")
