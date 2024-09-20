@@ -26,6 +26,7 @@ Solución preliminar:
 classDiagram
     class Producto {
         +String nombre
+        +String ID
         +float precio_unidad
         +float precio_total
         +int unidades
@@ -165,4 +166,4 @@ def imprimir_productos(self):
               f"Fecha de actualización: {producto.fecha_actualización}\n"
               f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
 ```
-
+----> Definir setters y getters a través del decorador @property
