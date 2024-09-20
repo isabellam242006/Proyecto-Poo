@@ -24,7 +24,7 @@ class Producto:
         Fecha estimada de vencimiento o caducidad del producto, generada aleatoriamente.
     """
 
-    def __init__(self, nombre, precio_unidad, unidades, marca):
+    def __init__(self, nombre, precio_unidad, unidades, marca, fecha_vencimiento):
         """
         Inicializa una nueva instancia de la clase Producto.
 
@@ -52,7 +52,7 @@ class Producto:
         self.fecha_ingreso = None
         self.fecha_ultima_actualizacion = None
         self.fecha_actualización = None
-        self.fecha_vencimiento = datetime.now() + timedelta(days=random.randint(1, 365 * 4))  
+        self.fecha_vencimiento = fecha_vencimiento
 
     def __str__(self):
         """Define cómo se imprime un objeto Producto."""
@@ -64,9 +64,9 @@ class Producto:
 
 
 if __name__ == "__main__":
-    producto_1 = Producto("Arroz", 5000, 100, "Diana")
-    producto_2 = Producto("Papa", 1000, 200, "Sabritas")
-    producto_3 = Producto("Leche", 2000, 50, "Alpina")
-    producto_4 = Producto("Cereal", 3000, 150, "Zucaritas")
+    producto_1 = Producto("Arroz", 5000, 100, "Diana", datetime(2023, 12, 31))
+    producto_2 = Producto("Papa", 1000, 200, "Sabritas" , datetime(2023, 12, 31))
+    producto_3 = Producto("Leche", 2000, 50, "Alpina" , datetime(2023, 12, 31))
+    producto_4 = Producto("Cereal", 3000, 150, "Zucaritas" , datetime(2023, 12, 31))
 
 

@@ -19,7 +19,8 @@ def main():
         print("5. Actualizar un producto")
         print("6. Listar productos")
         print("7. Imprimir productos")
-        print("8. Salir")
+        print("8. Conocer productos vencidos o por vencer")
+        print("9. Salir")
 
         opcion = input("Ingrese el número de la opción que desea realizar: ")
 
@@ -27,12 +28,24 @@ def main():
             if opcion == "1":
                 # Registrar entrada de un producto
                 nombre = input("Ingrese el nombre del producto: ")
-                precio = float(input("Ingrese el precio del producto: "))
+                precio = float(input("Ingrese el precio del producto por unidad: "))
                 cantidad = int(input("Ingrese la cantidad en unidades de ingreso del producto: "))
                 marca = input("Ingrese la marca del producto: ")
+
+                try:
+                    año = int(input("Ingrese el año de vencimiento (YYYY): "))
+                    mes = int(input("Ingrese el mes de vencimiento (MM): "))
+                    dia = int(input("Ingrese el día de vencimiento (DD): "))
+                    
+                    # Convertir el año, mes y día en un objeto datetime
+                    fecha_vencimiento = datetime(año, mes, dia)
+                except ValueError:
+                    print("Fecha inválida. Asegúrese de ingresar un año, mes y día válidos.")
+                    
+                    
                 
                 # Crear el objeto Producto
-                producto = Producto(nombre, precio, cantidad, marca)
+                producto = Producto(nombre, precio, cantidad, marca, fecha_vencimiento)
                 
                 # Registrar la entrada del producto en el inventario
                 inventario.registrar_entrada(producto)
@@ -91,8 +104,15 @@ def main():
             elif opcion == "7":
                 # Imprimir los detalles de todos los productos
                 inventario.imprimir_productos()
-
+                inventario.vencidos()
+                inventario.proximo_a_vencer()
+              
             elif opcion == "8":
+                     # Imprimir los productos vencidos o por vencer
+                     inventario.vencidos()
+                     inventario.proximo_a_vencer()
+
+            elif opcion == "9":
                 # Salir del sistema
                 print("Saliendo del sistema de inventario.")
                 break

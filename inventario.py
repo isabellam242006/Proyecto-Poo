@@ -1,5 +1,6 @@
 from producto import Producto
 from datetime import datetime
+from datetime import timedelta
 
 class Inventario:
   
@@ -16,16 +17,18 @@ class Inventario:
       
         
         """
-        producto.fecha_ingreso = datetime.now()
+
         producto.nombre = producto.nombre.lower()
 
         if producto.nombre in self.lista_productos:
             # Si el producto ya existe, actualiza la cantidad de unidades
+            self.lista_productos[producto.nombre].fecha_actualizacion = datetime.now()
             self.lista_productos[producto.nombre].unidades += producto.unidades
             print(f"Producto '{producto.nombre}' ya existe. Unidades actualizadas a {self.lista_productos[producto.nombre].unidades}.")
         else:
             # Si no existe, lo agrega
             self.lista_productos[producto.nombre] = producto
+            producto.fecha_ingreso = datetime.now()
             print(f"Producto '{producto.nombre}' agregado al inventario.")
 
    
@@ -41,12 +44,10 @@ class Inventario:
         nombre = nombre.lower()
         if nombre in self.lista_productos:
             producto = self.lista_productos[nombre]
-            if producto.fecha_ultima_actualizacion is None:
-                producto.fecha_ultima_actualizacion = datetime.now()
-            
+            producto.fecha_ultima_actualizacion = datetime.now()
             if cantidad <= producto.unidades:
-                producto.unidades -= cantidad
-                print(f"Se han retirado {cantidad} unidades del producto '{producto.nombre}'. Quedan {producto.unidades} unidades.")
+                    producto.unidades -= cantidad
+                    print(f"Se han retirado {cantidad} unidades del producto '{producto.nombre}'. Quedan {producto.unidades} unidades.")
             else:
                 print(f"No hay suficientes unidades del producto '{producto.nombre}'. Solo hay {producto.unidades} disponibles.")
         else:
@@ -114,11 +115,26 @@ class Inventario:
                   f"Fecha de Ingreso: {producto.fecha_ingreso}\n"
                   f"Fecha de actualización: {producto.fecha_ultima_actualizacion}\n"
                   f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
+    
+  
+    def proximo_a_vencer(self):
+        """Imprime los productos que están próximos a vencer."""
+        for producto in self.lista_productos.values():
+            if datetime.now() <= producto.fecha_vencimiento <= datetime.now() + timedelta(days=30):
+                print(f"Producto '{producto.nombre}' próximo a vencer. Fecha de vencimiento: {producto.fecha_vencimiento}")
+    
+   
+    def vencidos(self):
+        """Imprime los productos que ya han vencido."""
+        for producto in self.lista_productos.values():
+            if producto.fecha_vencimiento < datetime.now():
+                print(f"Producto '{producto.nombre}' vencido. Fecha de vencimiento: {producto.fecha_vencimiento}")
 
 
-producto1 = Producto("Arroz", 5000, 100, "Diana")
-producto2 = Producto("Papa", 2000, 50, "La Rústica")
-producto3 = Producto("Leche", 3000, 150, "Alpina")
+
+producto1 = Producto("Arroz", 5000, 100, "Diana", datetime(2023, 12, 31))
+producto2 = Producto("Papa", 2000, 50, "La Rústica", datetime(2023, 12, 31))
+producto3 = Producto("Leche", 3000, 150, "Alpina", datetime(2023, 12, 31))
 
 inventario = Inventario()
 
