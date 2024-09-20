@@ -49,8 +49,9 @@ class Producto:
         self.unidades = unidades
         self.precio_total = precio_unidad * unidades
         self.marca = marca
-        self.fecha_ingreso = datetime.now() 
-        self.fecha_actualización = datetime.now()  
+        self.fecha_ingreso = None
+        self.fecha_ultima_actualizacion = None
+        self.fecha_actualización = None
         self.fecha_vencimiento = datetime.now() + timedelta(days=random.randint(1, 365 * 4))  
 
 
