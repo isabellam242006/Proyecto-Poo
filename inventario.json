@@ -1,0 +1,26 @@
+{
+    "aguacate": {
+        "id": "6ec4bf90-0b4c-4b3d-a29f-0dd049c70847",
+        "nombre": "aguacate",
+        "precio_unidad": 23.0,
+        "unidades": 244,
+        "precio_total": 5612.0,
+        "marca": "12",
+        "fecha_ingreso": "2024-09-21 00:56:51",
+        "fecha_ultima_actualizacion": null,
+        "fecha_actualizaci\u00f3n": null,
+        "fecha_vencimiento": "2024-02-24 00:00:00"
+    },
+    "arroz": {
+        "id": "e7fa8723-e011-47f9-b6f8-a72693a6e046",
+        "nombre": "arroz",
+        "precio_unidad": 232.0,
+        "unidades": 23,
+        "precio_total": 5336.0,
+        "marca": "232",
+        "fecha_ingreso": "2024-09-21 00:56:51",
+        "fecha_ultima_actualizacion": null,
+        "fecha_actualizaci\u00f3n": null,
+        "fecha_vencimiento": "2024-02-24 00:00:00"
+    }
+}

@@ -66,6 +66,7 @@ class Producto:
         return (f"Nombre: {self.nombre}\n"
                 f"Marca: {self.marca}\n"
                 f"Precio por unidad: {self.precio_unidad}\n"
+                f"Precio total: {self.precio_total}\n"
                 f"Unidades disponibles: {self.unidades}\n"
                 f"Fecha de ingreso: {self.fecha_ingreso}\n"
                 f"Fecha de actualización: {self.fecha_actualización}\n"
