@@ -61,6 +61,53 @@ class Producto:
     def __repr__(self):
         """Define una representación más detallada del objeto Producto."""
         return f"<Producto(nombre={self.nombre}, precio={self.precio_unidad}, unidades={self.unidades})>"
+    
+    def detalles(self):
+        return (f"Nombre: {self.nombre}\n"
+                f"Marca: {self.marca}\n"
+                f"Precio por unidad: {self.precio_unidad}\n"
+                f"Unidades disponibles: {self.unidades}\n"
+                f"Fecha de ingreso: {self.fecha_ingreso}\n"
+                f"Fecha de actualización: {self.fecha_actualización}\n"
+                f"Fecha de vencimiento: {self.fecha_vencimiento}\n")
+    
+
+
+class FrutasYVerduras(Producto):
+    def __init__(self, nombre, precio_unidad, unidades, marca, fecha_vencimiento, estado_producto, peso_total):
+        super().__init__(nombre, precio_unidad, unidades, marca, fecha_vencimiento)
+        self.estado_producto = estado_producto  # Estado del producto (fresco, podrido, etc.)
+        self.peso_total = peso_total  # Peso total del producto en kilogramos
+
+    def detalles(self):
+        return (super().detalles() +
+                f"Estado del producto: {self.estado_producto}\n"
+                f"Peso total: {self.peso_total} kg\n")
+
+
+
+class Congelados(Producto):
+    def __init__(self, nombre, precio_unidad, unidades, marca, fecha_vencimiento, temperatura):
+        super().__init__(nombre, precio_unidad, unidades, marca, fecha_vencimiento)
+        self.temperatura = temperatura  # Temperatura a la que está el producto
+
+    def detalles(self):
+        return (super().detalles() +
+                f"Temperatura actual: {self.temperatura}°C\n")
+
+
+
+class Empaquetados(Producto):
+    def __init__(self, nombre, precio_unidad, unidades, marca, fecha_vencimiento, calidad_empaque, peso_neto):
+        super().__init__(nombre, precio_unidad, unidades, marca, fecha_vencimiento)
+        self.calidad_empaque = calidad_empaque  # Calidad del empaque
+        self.peso_neto = peso_neto  # Peso neto del producto en kilogramos
+
+    def detalles(self):
+        return (super().detalles() +
+                f"Calidad del empaque: {self.calidad_empaque}\n"
+                f"Peso neto: {self.peso_neto} kg\n")
+
 
 
 if __name__ == "__main__":

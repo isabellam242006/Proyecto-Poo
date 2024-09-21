@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime, timedelta
 import random
-from producto import Producto
+from producto import *
 from inventario import Inventario
 
 
@@ -16,41 +16,102 @@ def main():
         print("2. Registrar salida de un producto")
         print("3. Buscar un producto")
         print("4. Eliminar un producto")
-        print("5. Actualizar un producto")
-        print("6. Listar productos")
-        print("7. Imprimir productos")
-        print("8. Conocer productos vencidos o por vencer")
-        print("9. Salir")
+        print("5. Listar productos")
+        print("6. Imprimir productos")
+        print("7. Conocer productos vencidos o por vencer")
+        print("8. Salir")
 
         opcion = input("Ingrese el número de la opción que desea realizar: ")
 
         try:
             if opcion == "1":
-                # Registrar entrada de un producto
-                nombre = input("Ingrese el nombre del producto: ")
-                precio = float(input("Ingrese el precio del producto por unidad: "))
-                cantidad = int(input("Ingrese la cantidad en unidades de ingreso del producto: "))
-                marca = input("Ingrese la marca del producto: ")
+                
+                print("1.Frutas y verduras")
+                print("2.Congelados")
+                print("3.Empaquetados")
+                tipo_producto = input("¿Desea ingresar un tipo de producto en específico? s/n: ")
 
-                try:
-                    año = int(input("Ingrese el año de vencimiento (YYYY): "))
-                    mes = int(input("Ingrese el mes de vencimiento (MM): "))
-                    dia = int(input("Ingrese el día de vencimiento (DD): "))
+                
+                if tipo_producto.lower() == "s":
+                    tipo = input("Ingrese el número del tipo de producto que desea ingresar: ")
+
+                    nombre = input("Ingrese el nombre del producto: ")
+                    precio = float(input("Ingrese el precio del producto por unidad: "))
+                    cantidad = int(input("Ingrese la cantidad en unidades de ingreso del producto: "))
+                    marca = input("Ingrese la marca del producto: ")
+
+                    try:
+                        año = int(input("Ingrese el año de vencimiento (YYYY): "))
+                        mes = int(input("Ingrese el mes de vencimiento (MM): "))
+                        dia = int(input("Ingrese el día de vencimiento (DD): "))
                     
                     # Convertir el año, mes y día en un objeto datetime
-                    fecha_vencimiento = datetime(año, mes, dia)
-                except ValueError:
-                    print("Fecha inválida. Asegúrese de ingresar un año, mes y día válidos.")
+                        fecha_vencimiento = datetime(año, mes, dia)
+                    except ValueError:
+                        print("Fecha inválida. Asegúrese de ingresar un año, mes y día válidos.")
+              
                     
-                    
-                
-                # Crear el objeto Producto
-                producto = Producto(nombre, precio, cantidad, marca, fecha_vencimiento)
-                
-                # Registrar la entrada del producto en el inventario
-                inventario.registrar_entrada(producto)
-                print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
+                    if tipo == "1":
+                     estado_producto = input("Ingrese el estado del producto (fresco, podrido, etc.): ")
+                     peso_total = float(input("Ingrese el peso total del producto en kg: "))
+                     producto = FrutasYVerduras(nombre, precio, cantidad, marca, fecha_vencimiento, estado_producto, peso_total)
+
+                     inventario.registrar_entrada(producto)
+                     print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
            
+
+                    elif tipo_producto == "2":
+                    # Congelados
+                     temperatura = float(input("Ingrese la temperatura actual del producto: "))
+                     producto = Congelados(nombre, precio, cantidad, marca, fecha_vencimiento, temperatura)
+
+                     inventario.registrar_entrada(producto)
+                     print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
+           
+                    
+                    elif tipo_producto == "3":
+                    # Empaquetados
+                     calidad_empaque = input("Ingrese la calidad del empaque: ")
+                     peso_neto = float(input("Ingrese el peso neto del producto en kg: "))
+                     producto = Empaquetados(nombre, precio, cantidad, marca, fecha_vencimiento, calidad_empaque, peso_neto)
+
+                     inventario.registrar_entrada(producto)
+                     print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
+
+           
+
+                     
+                    
+                
+                elif tipo_producto.lower() == "n":
+                    nombre = input("Ingrese el nombre del producto: ")
+                    precio = float(input("Ingrese el precio del producto por unidad: "))
+                    cantidad = int(input("Ingrese la cantidad en unidades de ingreso del producto: "))
+                    marca = input("Ingrese la marca del producto: ")
+
+                    try:
+                        año = int(input("Ingrese el año de vencimiento (YYYY): "))
+                        mes = int(input("Ingrese el mes de vencimiento (MM): "))
+                        dia = int(input("Ingrese el día de vencimiento (DD): "))
+                    
+                    # Convertir el año, mes y día en un objeto datetime
+                        fecha_vencimiento = datetime(año, mes, dia)
+                    except ValueError:
+                        print("Fecha inválida. Asegúrese de ingresar un año, mes y día válidos.")
+
+                    producto = Producto(nombre, precio, cantidad, marca, fecha_vencimiento)
+                    
+                    # Registrar la entrada del producto en el inventario
+                    inventario.registrar_entrada(producto)
+                    print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
+                 
+                else:
+                    # Si se introduce una opción incorrecta (ni "s" ni "n")
+                     print("Opción inválida. Debe ingresar 's' o 'n'. Intente nuevamente.")
+                     
+                    
+           
+            
             elif opcion == "2":
                 # Registrar salida de un producto
                 nombre = input("Ingrese el nombre del producto: ")
@@ -80,39 +141,23 @@ def main():
                 nombre = input("Ingrese el nombre del producto que desea eliminar: ")
                 inventario.eliminar_producto(nombre)
 
+
             elif opcion == "5":
-                # Actualizar la información de un producto
-                nombre = input("Ingrese el nombre del producto que desea actualizar: ")
-                producto = inventario.buscar_producto(nombre)
-                if producto:
-                    nuevo_nombre = input(f"Nombre actual ({producto.nombre}). Ingrese nuevo nombre: ") or producto.nombre
-                    nuevo_precio = float(input(f"Precio actual ({producto.precio_unidad}). Ingrese nuevo precio: ") or producto.precio_unidad)
-                    nuevas_unidades = int(input(f"Unidades actuales ({producto.unidades}). Ingrese nuevas unidades: ") or producto.unidades)
-                    
-                    producto.nombre = nuevo_nombre
-                    producto.precio_unidad = nuevo_precio
-                    producto.unidades = nuevas_unidades
-
-                    # Actualizar en el inventario
-                    inventario.actualizar_producto(producto)
-                    print(f"Producto '{producto.nombre}' actualizado correctamente.")
-
-            elif opcion == "6":
                 # Listar la cantidad de productos en el inventario
                 inventario.listar_productos()
 
-            elif opcion == "7":
+            elif opcion == "6":
                 # Imprimir los detalles de todos los productos
                 inventario.imprimir_productos()
                 inventario.vencidos()
                 inventario.proximo_a_vencer()
               
-            elif opcion == "8":
+            elif opcion == "7":
                      # Imprimir los productos vencidos o por vencer
                      inventario.vencidos()
                      inventario.proximo_a_vencer()
 
-            elif opcion == "9":
+            elif opcion == "8":
                 # Salir del sistema
                 print("Saliendo del sistema de inventario.")
                 break

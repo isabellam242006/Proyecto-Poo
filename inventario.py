@@ -1,4 +1,4 @@
-from producto import Producto
+from producto import Producto, FrutasYVerduras, Congelados, Empaquetados
 from datetime import datetime
 from datetime import timedelta
 
@@ -78,6 +78,17 @@ class Inventario:
 
             return self.lista_productos[nombre]
         return None
+    
+    def actualizar_producto(self, nombre):
+        """
+        Actualiza la información de un producto en el inventario.
+        Si el producto existe, solicita los nuevos valores y actualiza el producto.
+        Si el producto no existe, muestra un mensaje de error.
+        """
+        nombre = nombre.lower()
+        if nombre in self.lista_productos:
+            producto = self.lista_productos[nombre]
+            print(f"Producto encontrado: {producto.nombre}")
 
 
     def eliminar_producto(self, nombre):
@@ -108,13 +119,7 @@ class Inventario:
             return
 
         for producto in self.lista_productos.values():
-            print(f"Nombre: {producto.nombre}\n"
-                  f"Precio por unidad: {producto.precio_unidad}\n"
-                  f"Precio total: {producto.precio_total}\n"
-                  f"Unidades: {producto.unidades}\n"
-                  f"Fecha de Ingreso: {producto.fecha_ingreso}\n"
-                  f"Fecha de actualización: {producto.fecha_ultima_actualizacion}\n"
-                  f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
+            print(producto.detalles())
     
   
     def proximo_a_vencer(self):
