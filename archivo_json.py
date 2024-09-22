@@ -44,7 +44,7 @@ def cargar_inventario_json(archivo="inventario.json"):
                     fecha_vencimiento=deserializar_datetime(datos.get('fecha_vencimiento', None))
                 )
                 producto.fecha_ingreso = deserializar_datetime(datos.get('fecha_ingreso', None))
-                producto.fecha_ultima_actualizacion = deserializar_datetime(datos.get('fecha_ultima_actualizacion', None))
+                producto.fecha_actualizacion = deserializar_datetime(datos.get('fecha_actualizacion', None))
                 inventario.registrar_entrada(producto)
         print(f"Inventario cargado desde {archivo} con éxito.")
     except FileNotFoundError:
