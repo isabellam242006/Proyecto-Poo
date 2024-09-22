@@ -9,7 +9,7 @@ class Inventario:
         """Inicializa un diccionario vacío para almacenar los productos por su nombre."""
         self.lista_productos = {}
    
-    def registrar_entrada(self, producto):
+    def registrar_entrada(self, producto, mantener_fecha = False):
       
         """Registra la entrada de un producto al inventario.
 
@@ -27,10 +27,11 @@ class Inventario:
             self.lista_productos[producto.nombre].unidades += producto.unidades
             print(f"Producto '{producto.nombre}' ya existe. Unidades actualizadas a {self.lista_productos[producto.nombre].unidades}.")
         else:
-            # Si no existe, lo agrega
-            self.lista_productos[producto.nombre] = producto
-            producto.fecha_ingreso = datetime.now()
-            print(f"Producto '{producto.nombre}' agregado al inventario.")
+            if not mantener_fecha:
+                # Si no existe, lo agrega
+                producto.fecha_ingreso = datetime.now()
+                self.lista_productos[producto.nombre] = producto
+                print(f"Producto '{producto.nombre}' agregado al inventario.")
 
    
     def registrar_salida(self, nombre, cantidad):
@@ -126,8 +127,8 @@ class Inventario:
     def proximo_a_vencer(self):
         """Imprime los productos que están próximos a vencer."""
         for producto in self.lista_productos.values():
-            if datetime.now() <= producto.fecha_vencimiento <= datetime.now() + timedelta(days=30):
-                print(f"Producto '{producto.nombre}' próximo a vencer. Fecha de vencimiento: {producto.fecha_vencimiento}")
+                if datetime.now() <= producto.fecha_vencimiento <= datetime.now() + timedelta(days=30):
+                    print(f"Producto '{producto.nombre}' próximo a vencer. Fecha de vencimiento: {producto.fecha_vencimiento}")
     
    
     def vencidos(self):

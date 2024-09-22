@@ -63,7 +63,7 @@ def main():
                      print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
            
 
-                    elif tipo_producto == "2":
+                    elif tipo == "2":
                     # Congelados
                      temperatura = float(input("Ingrese la temperatura actual del producto: "))
                      producto = Congelados(nombre, precio, cantidad, marca, fecha_vencimiento, temperatura)
@@ -72,7 +72,7 @@ def main():
                      print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
            
                     
-                    elif tipo_producto == "3":
+                    elif tipo == "3":
                     # Empaquetados
                      calidad_empaque = input("Ingrese la calidad del empaque: ")
                      peso_neto = float(input("Ingrese el peso neto del producto en kg: "))

@@ -8,14 +8,22 @@ def serializar_datetime(obj):
         return obj.strftime("%Y-%m-%d %H:%M:%S")  # Convierte datetime a string
     raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
 
+# Función para convertir una cadena a datetime
+def deserializar_datetime(fecha_str):
+    if fecha_str:
+        try:
+            return datetime.strptime(fecha_str, "%Y-%m-%d %H:%M:%S")
+        except ValueError:
+            print(f"Error al convertir '{fecha_str}' a datetime.")
+    return None
+
 # Función para guardar el inventario en un archivo JSON
 def guardar_inventario_json(inventario, archivo="inventario.json"):
     """Guarda el inventario en un archivo JSON."""
     try:
         with open(archivo, 'w') as f:
-            # Convertir cada producto a su representación en diccionario, serializando los datetime
             productos = {k: v.__dict__ for k, v in inventario.lista_productos.items()}
-            json.dump(productos, f, indent=4, default=serializar_datetime)  # Usar la función serializar_datetime para manejar datetime
+            json.dump(productos, f, indent=4, default=serializar_datetime)
         print(f"Inventario guardado en el archivo {archivo}.")
     except Exception as e:
         print(f"Error al guardar el archivo JSON: {e}")
@@ -33,10 +41,10 @@ def cargar_inventario_json(archivo="inventario.json"):
                     precio_unidad=datos['precio_unidad'],
                     unidades=datos['unidades'],
                     marca=datos['marca'],
-                    fecha_vencimiento=datos.get('fecha_vencimiento', None)
+                    fecha_vencimiento=deserializar_datetime(datos.get('fecha_vencimiento', None))
                 )
-                producto.fecha_ingreso = datos.get('fecha_ingreso', None)
-                producto.fecha_ultima_actualizacion = datos.get('fecha_ultima_actualizacion', None)
+                producto.fecha_ingreso = deserializar_datetime(datos.get('fecha_ingreso', None))
+                producto.fecha_ultima_actualizacion = deserializar_datetime(datos.get('fecha_ultima_actualizacion', None))
                 inventario.registrar_entrada(producto)
         print(f"Inventario cargado desde {archivo} con éxito.")
     except FileNotFoundError:
@@ -44,4 +52,5 @@ def cargar_inventario_json(archivo="inventario.json"):
     except Exception as e:
         print(f"Error al cargar el archivo JSON: {e}")
     return inventario
+
 
