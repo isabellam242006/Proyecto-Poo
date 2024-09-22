@@ -4,6 +4,7 @@ import random
 from producto import *
 from inventario import Inventario
 from archivo_json import guardar_inventario_json, cargar_inventario_json
+from analisis_monetario import *
 
 
 def main():
@@ -22,7 +23,9 @@ def main():
         print("5. Listar productos")
         print("6. Imprimir productos")
         print("7. Conocer productos vencidos o por vencer")
-        print("8. Salir")
+        print("8. Conocer análisis monetario")
+        print("9. Salir")
+
 
         opcion = input("Ingrese el número de la opción que desea realizar: ")
 
@@ -152,8 +155,14 @@ def main():
                      # Imprimir los productos vencidos o por vencer
                      inventario.vencidos()
                      inventario.proximo_a_vencer()
-
+            
             elif opcion == "8":
+                # Calcular el análisis monetario
+                analisis = AnalisisMonetario(inventario)
+                ingresos = analisis.calcular_ingresos()
+                print(f"Total de ingresos: ${ingresos}")
+
+            elif opcion == "9":
                 # Salir del sistema
                 guardar_inventario_json(inventario)
                 print("Saliendo del sistema de inventario.")

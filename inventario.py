@@ -80,16 +80,6 @@ class Inventario:
             return self.lista_productos[nombre]
         return None
     
-    def actualizar_producto(self, nombre):
-        """
-        Actualiza la información de un producto en el inventario.
-        Si el producto existe, solicita los nuevos valores y actualiza el producto.
-        Si el producto no existe, muestra un mensaje de error.
-        """
-        nombre = nombre.lower()
-        if nombre in self.lista_productos:
-            producto = self.lista_productos[nombre]
-            print(f"Producto encontrado: {producto.nombre}")
 
 
     def eliminar_producto(self, nombre):
