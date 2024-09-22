@@ -46,7 +46,7 @@ class Inventario:
         nombre = nombre.lower()
         if nombre in self.lista_productos:
             producto = self.lista_productos[nombre]
-            producto.fecha_ultima_actualizacion = datetime.now()
+            producto.fecha_actualizacion = datetime.now()
             if cantidad <= producto.unidades:
                     producto.unidades -= cantidad
                     print(f"Se han retirado {cantidad} unidades del producto '{producto.nombre}'. Quedan {producto.unidades} unidades.")
@@ -74,7 +74,7 @@ class Inventario:
                     f"Precio total: {producto.precio_total}\n"
                     f"Unidades: {producto.unidades}\n"
                     f"Fecha de Ingreso: {producto.fecha_ingreso}\n"
-                    f"Fecha de actualización: {producto.fecha_ultima_actualizacion}\n"
+                    f"Fecha de actualización: {producto.fecha_actualizacion}\n"
                     f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
             
 

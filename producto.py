@@ -50,8 +50,7 @@ class Producto:
         self.precio_total = precio_unidad * unidades
         self.marca = marca
         self.fecha_ingreso = None
-        self.fecha_ultima_actualizacion = None
-        self.fecha_actualización = None
+        self.fecha_actualizacion = None
         self.fecha_vencimiento = fecha_vencimiento
 
     def __str__(self):
@@ -69,7 +68,7 @@ class Producto:
                 f"Precio total: {self.precio_total}\n"
                 f"Unidades disponibles: {self.unidades}\n"
                 f"Fecha de ingreso: {self.fecha_ingreso}\n"
-                f"Fecha de actualización: {self.fecha_actualización}\n"
+                f"Fecha de actualización: {self.fecha_actualizacion}\n"
                 f"Fecha de vencimiento: {self.fecha_vencimiento}\n")
     
 

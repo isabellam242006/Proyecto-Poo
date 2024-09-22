@@ -1,86 +1,74 @@
 {
     "aguacate": {
-        "id": "9318ac00-2b1c-4d0e-8335-b087237b054d",
+        "id": "deb2bb06-02d2-4f55-8257-a027d6ef349d",
         "nombre": "aguacate",
         "precio_unidad": 23.0,
         "unidades": 244,
         "precio_total": 5612.0,
         "marca": "12",
-        "fecha_ingreso": "2024-09-22 12:43:18",
-        "fecha_ultima_actualizacion": null,
-        "fecha_actualizaci\u00f3n": null,
-        "fecha_vencimiento": "2024-02-24 00:00:00"
+        "fecha_ingreso": "2024-09-22 13:35:24",
+        "fecha_actualizacion": null,
+        "fecha_vencimiento": "2024-02-24 00:00:00",
+        "fecha_ultima_actualizacion": null
     },
     "arroz": {
-        "id": "8cb152f2-040e-48e3-ad26-faff402641b6",
+        "id": "fa34cb88-ca0f-4aba-b172-202fcaab5380",
         "nombre": "arroz",
         "precio_unidad": 232.0,
         "unidades": 23,
         "precio_total": 5336.0,
         "marca": "232",
-        "fecha_ingreso": "2024-09-22 12:43:18",
-        "fecha_ultima_actualizacion": null,
-        "fecha_actualizaci\u00f3n": null,
-        "fecha_vencimiento": "2024-02-24 00:00:00"
-    },
-    "az\u00facar": {
-        "id": "429f71af-f5c4-4f05-9fb2-28cf4f4a7926",
-        "nombre": "az\u00facar",
-        "precio_unidad": 4000.0,
-        "unidades": 24,
-        "precio_total": 96000.0,
-        "marca": "Manuelita",
-        "fecha_ingreso": "2024-09-22 12:43:18",
-        "fecha_ultima_actualizacion": null,
-        "fecha_actualizaci\u00f3n": null,
-        "fecha_vencimiento": "2025-01-13 00:00:00"
+        "fecha_ingreso": "2024-09-22 13:35:24",
+        "fecha_actualizacion": null,
+        "fecha_vencimiento": "2024-02-24 00:00:00",
+        "fecha_ultima_actualizacion": null
     },
     "cebolla": {
-        "id": "20d4fd90-3a3a-4731-9a84-e38c27683bc8",
+        "id": "6901ad2d-b5f0-46bb-94be-096b61a9abf9",
         "nombre": "cebolla",
         "precio_unidad": 700.0,
         "unidades": 30,
         "precio_total": 21000.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 12:43:18",
-        "fecha_ultima_actualizacion": null,
-        "fecha_actualizaci\u00f3n": null,
-        "fecha_vencimiento": null
+        "fecha_ingreso": "2024-09-22 13:35:24",
+        "fecha_actualizacion": null,
+        "fecha_vencimiento": null,
+        "fecha_ultima_actualizacion": null
     },
     "yogurt": {
-        "id": "06237a60-97a8-42b3-bb0f-c0e896f0adf8",
+        "id": "903e3d19-f1f4-4115-957d-2d31c7999156",
         "nombre": "yogurt",
         "precio_unidad": 7000.0,
         "unidades": 10,
         "precio_total": 70000.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 12:43:18",
-        "fecha_ultima_actualizacion": null,
-        "fecha_actualizaci\u00f3n": null,
-        "fecha_vencimiento": null
+        "fecha_ingreso": "2024-09-22 13:35:24",
+        "fecha_actualizacion": null,
+        "fecha_vencimiento": null,
+        "fecha_ultima_actualizacion": null
     },
     "alcachofa": {
-        "id": "22536e80-c85a-421d-a645-7edb05cb1562",
+        "id": "7cfb78cb-18e6-4805-b17b-12c3d2d2a5a7",
         "nombre": "alcachofa",
         "precio_unidad": 232.0,
         "unidades": 24,
         "precio_total": 5568.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 12:43:18",
-        "fecha_ultima_actualizacion": null,
-        "fecha_actualizaci\u00f3n": null,
-        "fecha_vencimiento": null
+        "fecha_ingreso": "2024-09-22 13:35:24",
+        "fecha_actualizacion": null,
+        "fecha_vencimiento": null,
+        "fecha_ultima_actualizacion": null
     },
     "cereza": {
-        "id": "97e677da-f414-43ed-b1a1-f27be814ecb6",
+        "id": "f0c47ad2-ea8c-4d05-958e-1134f96708c2",
         "nombre": "cereza",
         "precio_unidad": 23.0,
         "unidades": 243,
         "precio_total": 5589.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 12:43:56",
-        "fecha_ultima_actualizacion": null,
-        "fecha_actualizaci\u00f3n": null,
-        "fecha_vencimiento": "2024-02-24 00:00:00"
+        "fecha_ingreso": "2024-09-22 13:35:24",
+        "fecha_actualizacion": null,
+        "fecha_vencimiento": "2024-02-24 00:00:00",
+        "fecha_ultima_actualizacion": null
     }
 }
