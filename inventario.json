@@ -1,68 +1,79 @@
 {
     "aguacate": {
-        "id": "043efdaa-ae82-40a2-b612-76769cb39c97",
+        "id": "d30ce6b9-2bd4-448a-934b-ba9e478713f7",
         "nombre": "aguacate",
         "precio_unidad": 23.0,
         "unidades": 244,
         "precio_total": 5612.0,
         "marca": "12",
-        "fecha_ingreso": "2024-09-22 13:55:53",
+        "fecha_ingreso": "2024-09-22 16:14:16",
         "fecha_actualizacion": null,
         "fecha_vencimiento": "2024-02-24 00:00:00"
     },
     "arroz": {
-        "id": "69a1a020-f504-4957-ac53-dd80e70cf9e3",
+        "id": "b1f3bb0d-20b9-4ef7-947b-30e31ab11eed",
         "nombre": "arroz",
         "precio_unidad": 232.0,
         "unidades": 365,
-        "precio_total": 5336.0,
+        "precio_total": 84680.0,
         "marca": "232",
-        "fecha_ingreso": "2024-09-22 13:55:53",
+        "fecha_ingreso": "2024-09-22 16:14:16",
         "fecha_actualizacion": "2024-09-22 13:56:51",
         "fecha_vencimiento": "2024-02-24 00:00:00"
     },
     "cebolla": {
-        "id": "d31aed0f-8530-48c0-9eda-61d5e7f52de6",
+        "id": "aa24444c-e8ca-4ae4-ac1f-8ab00c4e7d23",
         "nombre": "cebolla",
         "precio_unidad": 700.0,
         "unidades": 30,
         "precio_total": 21000.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 13:55:53",
+        "fecha_ingreso": "2024-09-22 16:14:16",
         "fecha_actualizacion": null,
         "fecha_vencimiento": null
     },
     "yogurt": {
-        "id": "fb0d1430-62f4-4b96-987c-cf1d9a828e2c",
+        "id": "80fac877-17ad-42d5-95c3-b1319a4ab8b2",
         "nombre": "yogurt",
         "precio_unidad": 7000.0,
         "unidades": 10,
         "precio_total": 70000.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 13:55:53",
+        "fecha_ingreso": "2024-09-22 16:14:16",
         "fecha_actualizacion": null,
         "fecha_vencimiento": null
     },
     "alcachofa": {
-        "id": "c02175cd-6d7d-42fd-a84a-40094e97c9e4",
+        "id": "d16d1d30-a656-40b3-91c7-9e98e0df0947",
         "nombre": "alcachofa",
         "precio_unidad": 232.0,
         "unidades": 24,
         "precio_total": 5568.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 13:55:53",
+        "fecha_ingreso": "2024-09-22 16:14:16",
         "fecha_actualizacion": null,
         "fecha_vencimiento": null
     },
     "cereza": {
-        "id": "f06b1fc9-e818-4b0c-b5f5-0797b65cfc8b",
+        "id": "6e784cff-889b-4049-b210-18db9f4b85d7",
         "nombre": "cereza",
         "precio_unidad": 23.0,
         "unidades": 243,
         "precio_total": 5589.0,
         "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 13:55:53",
+        "fecha_ingreso": "2024-09-22 16:14:16",
         "fecha_actualizacion": null,
+        "fecha_vencimiento": "2024-02-24 00:00:00"
+    },
+    "champi\u00f1ones": {
+        "id": "b9e0a9eb-399e-459b-91f1-1b55fdc26ad3",
+        "nombre": "champi\u00f1ones",
+        "precio_unidad": 1000.0,
+        "unidades": 36,
+        "precio_total": 70000.0,
+        "marca": "no hay",
+        "fecha_ingreso": "2024-09-22 16:14:16",
+        "fecha_actualizacion": "2024-09-22 16:14:36",
         "fecha_vencimiento": "2024-02-24 00:00:00"
     }
 }

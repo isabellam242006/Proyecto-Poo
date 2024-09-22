@@ -1,7 +1,6 @@
-from producto import Producto, FrutasYVerduras, Congelados, Empaquetados
+from producto import Producto
 from datetime import datetime
 from datetime import timedelta
-import json
 
 class Inventario:
   
