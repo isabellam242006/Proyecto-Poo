@@ -27,6 +27,7 @@ def guardar_inventario_json(inventario, archivo="inventario.json"):
                 productos[k] = {
                     "nombre": producto.nombre,
                     "precio_costo_unidad": producto.precio_costo_unidad or 0,
+                    "precio_costo_total": producto.precio_costo_total or 0,
                     "precio_venta_unidad": producto.precio_venta_unidad or 0,
                     "precio_venta_total": producto.precio_venta_total or 0, 
                     "unidades": producto.unidades or 0,
@@ -59,6 +60,7 @@ def cargar_inventario_json(archivo="inventario.json"):
                 )
                 producto.fecha_ingreso = deserializar_datetime(datos.get('fecha_ingreso', None))
                 producto.fecha_actualizacion = deserializar_datetime(datos.get('fecha_actualizacion', None))
+                producto.precio_costo_total = datos.get('precio_costo_total', 0)
                 producto.precio_venta_total = datos.get('precio_venta_total', 0)  
                 producto.unidades_vendidas = datos.get('unidades_vendidas', 0)  
                 inventario.registrar_entrada(producto)

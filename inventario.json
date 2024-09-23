@@ -2,25 +2,40 @@
     "papa": {
         "nombre": "papa",
         "precio_costo_unidad": 232.0,
+        "precio_costo_total": 0,
         "precio_venta_unidad": 233.0,
         "precio_venta_total": 233.0,
         "unidades": 31,
         "unidades_vendidas": 1,
         "marca": "dcesdes",
-        "fecha_ingreso": "2024-09-23 12:58:11",
+        "fecha_ingreso": "2024-09-23 13:06:12",
         "fecha_actualizacion": "2024-09-23 12:51:59",
         "fecha_vencimiento": "2024-01-13 00:00:00"
     },
     "arroz": {
         "nombre": "arroz",
         "precio_costo_unidad": 5000.0,
+        "precio_costo_total": 0,
         "precio_venta_unidad": 10000.0,
         "precio_venta_total": 50000.0,
         "unidades": 9,
         "unidades_vendidas": 5,
         "marca": "diana",
-        "fecha_ingreso": "2024-09-23 12:58:11",
+        "fecha_ingreso": "2024-09-23 13:06:12",
         "fecha_actualizacion": "2024-09-23 12:54:34",
         "fecha_vencimiento": "2025-06-17 00:00:00"
+    },
+    "cereza": {
+        "nombre": "cereza",
+        "precio_costo_unidad": 232.0,
+        "precio_costo_total": 5336.0,
+        "precio_venta_unidad": 223.0,
+        "precio_venta_total": 0,
+        "unidades": 23,
+        "unidades_vendidas": 0,
+        "marca": "esef",
+        "fecha_ingreso": "2024-09-23 13:06:12",
+        "fecha_actualizacion": "",
+        "fecha_vencimiento": "2025-06-02 00:00:00"
     }
 }
