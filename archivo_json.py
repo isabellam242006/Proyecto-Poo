@@ -22,8 +22,21 @@ def guardar_inventario_json(inventario, archivo="inventario.json"):
     """Guarda el inventario en un archivo JSON."""
     try:
         with open(archivo, 'w') as f:
-            productos = {k: v.__dict__ for k, v in inventario.lista_productos.items()}
-            json.dump(productos, f, indent=4, default=serializar_datetime)
+            productos = {}
+            for k, producto in inventario.lista_productos.items():
+                productos[k] = {
+                    "nombre": producto.nombre,
+                    "precio_costo_unidad": producto.precio_costo_unidad or 0,
+                    "precio_venta_unidad": producto.precio_venta_unidad or 0,
+                    "precio_venta_total": producto.precio_venta_total or 0, 
+                    "unidades": producto.unidades or 0,
+                    "unidades_vendidas": producto.unidades_vendidas or 0,  
+                    "marca": producto.marca or "",
+                    "fecha_ingreso": serializar_datetime(producto.fecha_ingreso) if producto.fecha_ingreso else "",
+                    "fecha_actualizacion": serializar_datetime(producto.fecha_actualizacion) if producto.fecha_actualizacion else "",
+                    "fecha_vencimiento": serializar_datetime(producto.fecha_vencimiento) if producto.fecha_vencimiento else ""
+                }
+            json.dump(productos, f, indent=4)
         print(f"Inventario guardado en el archivo {archivo}.")
     except Exception as e:
         print(f"Error al guardar el archivo JSON: {e}")
@@ -46,6 +59,8 @@ def cargar_inventario_json(archivo="inventario.json"):
                 )
                 producto.fecha_ingreso = deserializar_datetime(datos.get('fecha_ingreso', None))
                 producto.fecha_actualizacion = deserializar_datetime(datos.get('fecha_actualizacion', None))
+                producto.precio_venta_total = datos.get('precio_venta_total', 0)  
+                producto.unidades_vendidas = datos.get('unidades_vendidas', 0)  
                 inventario.registrar_entrada(producto)
         print(f"Inventario cargado desde {archivo} con éxito.")
     except FileNotFoundError:
