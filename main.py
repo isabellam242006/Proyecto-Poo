@@ -148,7 +148,7 @@ def main():
             elif opcion == "8":
                 # Calcular el análisis monetario
                 analisis = AnalisisMonetario(inventario)
-                analisis.detalles()
+                analisis.imprimir_resultados()
 
             elif opcion == "9":
                 # Salir del sistema
