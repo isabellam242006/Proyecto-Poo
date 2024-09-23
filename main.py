@@ -148,14 +148,7 @@ def main():
             elif opcion == "8":
                 # Calcular el análisis monetario
                 analisis = AnalisisMonetario(inventario)
-                analisis.calcular_ingresos()
-                analisis.calcular_costos()
-                analisis.calcular_ganancias()
-                analisis.calcular_margen_ganancias()
-                analisis.calcular_inventario_promedio()
-                analisis.calcular_rotacion()
-                analisis.calcular_periodo_rotacion()
-                analisis.clasificar_abc()
+                analisis.detalles()
 
             elif opcion == "9":
                 # Salir del sistema

@@ -53,3 +53,32 @@ def cargar_inventario_json(archivo="inventario.json"):
     except Exception as e:
         print(f"Error al cargar el archivo JSON: {e}")
     return inventario
+
+def clasificar_abc(self):
+        """Clasifica los productos en A, B, o C según el índice de rotación o ingresos."""
+        productos = list(self.inventario.lista_productos.values())
+
+        # Ordenar productos por ingresos (de mayor a menor)
+        productos.sort(key=lambda producto: producto.precio_venta_total, reverse=True)
+
+        total_ingresos = self.calcular_ingresos()
+        acumulado_ingresos = 0
+
+        clasificacion = {}
+
+        # Clasificar en A, B, C
+        for producto in productos:
+            porcentaje_acumulado = (acumulado_ingresos / total_ingresos) * 100 if total_ingresos > 0 else 0
+
+            if porcentaje_acumulado < 80:  # Categoría A (primer 80% de ingresos)
+                clasificacion[producto.nombre] = 'A'
+            elif porcentaje_acumulado < 95:  # Categoría B (entre 80% y 95%)
+                clasificacion[producto.nombre] = 'B'
+            else:  # Categoría C (último 5% de ingresos)
+                clasificacion[producto.nombre] = 'C'
+
+            acumulado_ingresos += producto.precio_venta_total
+
+        print("Clasificación ABC de los productos:")
+        for nombre, categoria in clasificacion.items():
+            print(f"Producto: {nombre}, Categoría: {categoria}")
