@@ -1,79 +1,47 @@
 {
-    "aguacate": {
-        "id": "dfce8f45-7bf9-4d7e-b74d-766137923588",
-        "nombre": "aguacate",
-        "precio_unidad": 23.0,
-        "unidades": 244,
-        "precio_total": 5612.0,
-        "marca": "12",
-        "fecha_ingreso": "2024-09-22 17:03:48",
-        "fecha_actualizacion": null,
-        "fecha_vencimiento": "2024-02-24 00:00:00"
-    },
     "arroz": {
-        "id": "95d44fb4-83c0-42c4-b3da-ff610206c6a3",
+        "id": "6c7c8d7b-beb4-4e53-a139-f4d2feab1eb6",
         "nombre": "arroz",
-        "precio_unidad": 232.0,
-        "unidades": 365,
-        "precio_total": 84680.0,
-        "marca": "232",
-        "fecha_ingreso": "2024-09-22 17:03:48",
-        "fecha_actualizacion": "2024-09-22 13:56:51",
-        "fecha_vencimiento": "2024-02-24 00:00:00"
-    },
-    "cebolla": {
-        "id": "a031040f-0220-425a-adec-c275d93ad2c7",
-        "nombre": "cebolla",
-        "precio_unidad": 700.0,
+        "precio_costo_unidad": 5000.0,
+        "precio_venta_unidad": 10000.0,
         "unidades": 30,
-        "precio_total": 21000.0,
-        "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 17:03:48",
+        "unidades_vendidas": 0,
+        "precio_costo_total": 150000.0,
+        "precio_venta_total": null,
+        "marca": "diana",
+        "fecha_ingreso": "2024-09-22 21:47:10",
         "fecha_actualizacion": null,
-        "fecha_vencimiento": null
+        "fecha_vencimiento": "2024-02-24 00:00:00",
+        "stock_inicial": 30
     },
-    "yogurt": {
-        "id": "41c6d115-b97e-43e0-8561-14a4ad37ed8f",
-        "nombre": "yogurt",
-        "precio_unidad": 7000.0,
-        "unidades": 10,
-        "precio_total": 70000.0,
-        "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 17:03:48",
+    "pasta": {
+        "id": "1f606f0f-75fb-4ed3-95bc-3c3637d1c47c",
+        "nombre": "pasta",
+        "precio_costo_unidad": 11000.0,
+        "precio_venta_unidad": 12000.0,
+        "unidades": 23,
+        "unidades_vendidas": 0,
+        "precio_costo_total": 253000.0,
+        "precio_venta_total": null,
+        "marca": "doria",
+        "fecha_ingreso": "2024-09-22 21:47:10",
         "fecha_actualizacion": null,
-        "fecha_vencimiento": null
+        "fecha_vencimiento": "2025-06-06 00:00:00",
+        "stock_inicial": 23
     },
-    "alcachofa": {
-        "id": "5e666f5f-ba2d-4421-8e7d-641873a26018",
-        "nombre": "alcachofa",
-        "precio_unidad": 232.0,
-        "unidades": 24,
-        "precio_total": 5568.0,
-        "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 17:03:48",
+    "sal": {
+        "id": "fb8cc572-b132-4833-95df-c57c936e6365",
+        "nombre": "sal",
+        "precio_costo_unidad": 1000.0,
+        "precio_venta_unidad": 2000.0,
+        "unidades": 50,
+        "unidades_vendidas": 0,
+        "precio_costo_total": 50000.0,
+        "precio_venta_total": null,
+        "marca": "refisal",
+        "fecha_ingreso": "2024-09-22 21:47:10",
         "fecha_actualizacion": null,
-        "fecha_vencimiento": null
-    },
-    "cereza": {
-        "id": "f250125c-aa52-4956-8083-b8ba758c0de4",
-        "nombre": "cereza",
-        "precio_unidad": 23.0,
-        "unidades": 243,
-        "precio_total": 5589.0,
-        "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 17:03:48",
-        "fecha_actualizacion": null,
-        "fecha_vencimiento": "2024-02-24 00:00:00"
-    },
-    "champi\u00f1ones": {
-        "id": "e5bbe2b0-45bf-4125-9436-14fff315f0bb",
-        "nombre": "champi\u00f1ones",
-        "precio_unidad": 1000.0,
-        "unidades": 36,
-        "precio_total": 36000.0,
-        "marca": "no hay",
-        "fecha_ingreso": "2024-09-22 17:03:48",
-        "fecha_actualizacion": "2024-09-22 16:14:36",
-        "fecha_vencimiento": "2024-02-24 00:00:00"
+        "fecha_vencimiento": "2025-02-24 00:00:00",
+        "stock_inicial": 50
     }
 }

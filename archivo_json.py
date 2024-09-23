@@ -38,7 +38,8 @@ def cargar_inventario_json(archivo="inventario.json"):
             for nombre, datos in productos.items():
                 producto = Producto(
                     nombre=datos['nombre'],
-                    precio_unidad=datos['precio_unidad'],
+                    precio_costo_unidad=datos['precio_costo_unidad'],
+                    precio_venta_unidad=datos['precio_venta_unidad'],
                     unidades=datos['unidades'],
                     marca=datos['marca'],
                     fecha_vencimiento=deserializar_datetime(datos.get('fecha_vencimiento', None))
@@ -52,5 +53,6 @@ def cargar_inventario_json(archivo="inventario.json"):
     except Exception as e:
         print(f"Error al cargar el archivo JSON: {e}")
     return inventario
+
 
 

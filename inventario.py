@@ -48,6 +48,8 @@ class Inventario:
             producto.fecha_actualizacion = datetime.now()
             if cantidad <= producto.unidades:
                     producto.unidades -= cantidad
+                    producto.unidades_vendidas += cantidad
+                    producto.precio_venta_total = producto.precio_venta_unidad * cantidad
                     print(f"Se han retirado {cantidad} unidades del producto '{producto.nombre}'. Quedan {producto.unidades} unidades.")
             else:
                 print(f"No hay suficientes unidades del producto '{producto.nombre}'. Solo hay {producto.unidades} disponibles.")
@@ -69,12 +71,16 @@ class Inventario:
             producto = self.lista_productos[nombre]
             print(f"Producto '{producto.nombre}' encontrado.")
             print (f"Nombre: {producto.nombre}\n"
-                    f"Precio por unidad: {producto.precio_unidad}\n"
-                    f"Precio total: {producto.precio_total}\n"
-                    f"Unidades: {producto.unidades}\n"
-                    f"Fecha de Ingreso: {producto.fecha_ingreso}\n"
-                    f"Fecha de actualización: {producto.fecha_actualizacion}\n"
-                    f"Fecha de Vencimiento: {producto.fecha_vencimiento}\n")
+                f"Marca: {producto.marca}\n"
+                f"Precio de costo del producto por unidad: {producto.precio_costo_unidad}\n"
+                f"Precio total del costo del producto: {producto.precio_costo_total}\n"
+                f"Precio de venta del producto por unidad: {producto.precio_venta_unidad}\n"
+                f"Precio total de venta del producto: {producto.precio_venta_total}\n"
+                f"Unidades disponibles: {producto.unidades}\n"
+                f"Unidades vendidas: {producto.unidades_vendidas}\n"
+                f"Fecha de ingreso: {producto.fecha_ingreso}\n"
+                f"Fecha de actualización: {producto.fecha_actualizacion}\n"
+                f"Fecha de vencimiento: {producto.fecha_vencimiento}\n")
             
 
             return self.lista_productos[nombre]
@@ -126,21 +132,18 @@ class Inventario:
             if producto.fecha_vencimiento < datetime.now():
                 print(f"Producto '{producto.nombre}' vencido. Fecha de vencimiento: {producto.fecha_vencimiento}")
 
+  
+    def calcular_stock_inicial(self):
+        """Calcula el stock inicial de todos los productos en el inventario."""
+        stock_inicial_total = sum(producto.stock_inicial for producto in self.lista_productos.values())
+        print(f"Stock inicial total: {stock_inicial_total}")
+        return stock_inicial_total
+
+   
+    def calcular_stock_final(self):
+        """Calcula el stock final de todos los productos en el inventario."""
+        stock_final_total = sum(producto.unidades for producto in self.lista_productos.values())
+        print(f"Stock final total: {stock_final_total}")
+        return stock_final_total
 
 
-producto1 = Producto("Arroz", 5000, 100, "Diana", datetime(2023, 12, 31))
-producto2 = Producto("Papa", 2000, 50, "La Rústica", datetime(2023, 12, 31))
-producto3 = Producto("Leche", 3000, 150, "Alpina", datetime(2023, 12, 31))
-
-inventario = Inventario()
-
-# Agregar los productos al inventario
-inventario.registrar_entrada(producto1)
-inventario.registrar_entrada(producto2)
-inventario.registrar_entrada(producto3)
-
-inventario.registrar_salida("Arroz", 50)
-#inventario.imprimir_productos()
-
-
-inventario.buscar_producto("Arroz")

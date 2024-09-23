@@ -34,7 +34,6 @@ def main():
                 
                 print("1.Frutas y verduras")
                 print("2.Congelados")
-                print("3.Empaquetados")
                 tipo_producto = input("¿Desea ingresar un tipo de producto en específico? s/n: ")
 
                 
@@ -42,7 +41,8 @@ def main():
                     tipo = input("Ingrese el número del tipo de producto que desea ingresar: ")
 
                     nombre = input("Ingrese el nombre del producto: ")
-                    precio = float(input("Ingrese el precio del producto por unidad: "))
+                    precio_costo = float(input("Ingrese el precio de costo del producto por unidad: "))
+                    precio_venta = float(input("Ingrese el precio de venta del producto por unidad: "))
                     cantidad = int(input("Ingrese la cantidad en unidades de ingreso del producto: "))
                     marca = input("Ingrese la marca del producto: ")
 
@@ -55,12 +55,13 @@ def main():
                         fecha_vencimiento = datetime(año, mes, dia)
                     except ValueError:
                         print("Fecha inválida. Asegúrese de ingresar un año, mes y día válidos.")
+                        continue
               
                     
                     if tipo == "1":
-                     estado_producto = input("Ingrese el estado del producto (fresco, podrido, etc.): ")
-                     peso_total = float(input("Ingrese el peso total del producto en kg: "))
-                     producto = FrutasYVerduras(nombre, precio, cantidad, marca, fecha_vencimiento, estado_producto, peso_total)
+                     estado_producto = input("Ingrese el estado del producto: ")
+                     peso_total = float(input("Ingrese el peso neto del producto por unidad: "))
+                     producto = FrutasYVerduras(nombre, precio_costo, precio_venta, cantidad, marca, fecha_vencimiento, estado_producto, peso_total)
 
                      inventario.registrar_entrada(producto)
                      print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
@@ -68,30 +69,19 @@ def main():
 
                     elif tipo == "2":
                     # Congelados
-                     temperatura = float(input("Ingrese la temperatura actual del producto: "))
-                     producto = Congelados(nombre, precio, cantidad, marca, fecha_vencimiento, temperatura)
+                     temperatura = float(input("Ingrese la temperatura actual del producto en centígrados: "))
+                     producto = Congelados(nombre, precio_costo, precio_venta, cantidad, marca, fecha_vencimiento, temperatura)
 
                      inventario.registrar_entrada(producto)
+                     producto.calcular_temperatura_optima()
                      print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
-           
-                    
-                    elif tipo == "3":
-                    # Empaquetados
-                     calidad_empaque = input("Ingrese la calidad del empaque: ")
-                     peso_neto = float(input("Ingrese el peso neto del producto en kg: "))
-                     producto = Empaquetados(nombre, precio, cantidad, marca, fecha_vencimiento, calidad_empaque, peso_neto)
-
-                     inventario.registrar_entrada(producto)
-                     print(f"Producto '{nombre}' registrado exitosamente en el inventario.")
-
-           
-
-                     
+              
                     
                 
                 elif tipo_producto.lower() == "n":
                     nombre = input("Ingrese el nombre del producto: ")
-                    precio = float(input("Ingrese el precio del producto por unidad: "))
+                    precio_costo = float(input("Ingrese el precio de costo del producto por unidad: "))
+                    precio_venta = float(input("Ingrese el precio de venta del producto por unidad: "))
                     cantidad = int(input("Ingrese la cantidad en unidades de ingreso del producto: "))
                     marca = input("Ingrese la marca del producto: ")
 
@@ -104,8 +94,9 @@ def main():
                         fecha_vencimiento = datetime(año, mes, dia)
                     except ValueError:
                         print("Fecha inválida. Asegúrese de ingresar un año, mes y día válidos.")
+                        continue
 
-                    producto = Producto(nombre, precio, cantidad, marca, fecha_vencimiento)
+                    producto = Producto(nombre, precio_costo, precio_venta, cantidad, marca, fecha_vencimiento)
                     
                     # Registrar la entrada del producto en el inventario
                     inventario.registrar_entrada(producto)
@@ -159,8 +150,11 @@ def main():
             elif opcion == "8":
                 # Calcular el análisis monetario
                 analisis = AnalisisMonetario(inventario)
-                ingresos = analisis.calcular_ingresos()
-                print(f"Total de ingresos: ${ingresos}")
+                analisis.calcular_ingresos()
+                analisis.calcular_costos()
+                analisis.calcular_ganancias()
+                analisis.calcular_margen_ganancias()
+                analisis.calcular_inventario_promedio()
 
             elif opcion == "9":
                 # Salir del sistema
