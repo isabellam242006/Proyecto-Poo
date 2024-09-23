@@ -1,6 +1,5 @@
 import uuid
 from datetime import datetime, timedelta
-import random
 from producto import *
 from inventario import Inventario
 from archivo_json import guardar_inventario_json, cargar_inventario_json
@@ -8,7 +7,6 @@ from analisis_monetario import *
 
 
 def main():
-    #inventario = Inventario()
 
     inventario = cargar_inventario_json()
 
@@ -155,6 +153,9 @@ def main():
                 analisis.calcular_ganancias()
                 analisis.calcular_margen_ganancias()
                 analisis.calcular_inventario_promedio()
+                analisis.calcular_rotacion()
+                analisis.calcular_periodo_rotacion()
+                analisis.clasificar_abc()
 
             elif opcion == "9":
                 # Salir del sistema

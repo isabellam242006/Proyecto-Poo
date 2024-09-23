@@ -32,7 +32,7 @@ class AnalisisMonetario:
         """Calcula el margen de ganancias como un porcentaje."""
         total_ganancias = self.calcular_ganancias()
         total_ingresos = self.calcular_ingresos()
-        if total_ingresos > 0 if total_ingresos is not None else False:
+        if total_ingresos > 0 if total_ingresos is not None else 0:
             margen_ganancias = (total_ganancias / total_ingresos) * 100
             print("Margen de ganancias: ", margen_ganancias, "%")
         else:
@@ -40,12 +40,66 @@ class AnalisisMonetario:
 
   
     def calcular_inventario_promedio(self):
+        """Calcula el inventario promedio de todos los productos."""
         stock_inicial = self.inventario.calcular_stock_inicial()
         stock_final = self.inventario.calcular_stock_final()
-        
-        # Calcular el inventario promedio
+
         inventario_promedio = (stock_inicial + stock_final) / 2
         print(f"Inventario promedio: {inventario_promedio}")
+
+    
+    def calcular_rotacion(self):
+        """Calcula el índice de rotación del inventario."""
+        total_ingresos = self.calcular_ingresos()
+        inventario_promedio = self.calcular_inventario_promedio()
+
+        if inventario_promedio > 0:
+            rotacion = total_ingresos / inventario_promedio
+            print(f"El índice de rotación es: {rotacion}")
+            return rotacion
+        else:
+            print("No se puede calcular el índice de rotación: inventario promedio es 0.")
+            return 0
+
+    def calcular_periodo_rotacion(self):
+        """Calcula el periodo de rotación del inventario."""
+        rotacion = self.calcular_rotacion()
+        if rotacion > 0:
+            periodo_rotacion = 365 / rotacion
+            print(f"El periodo de rotación es: {periodo_rotacion} días")
+            return periodo_rotacion
+        else:
+            print("No se puede calcular el periodo de rotación: índice de rotación es 0.")
+            return None
+
+    def clasificar_abc(self):
+        """Clasifica los productos en A, B, o C según el índice de rotación o ingresos."""
+        productos = list(self.inventario.lista_productos.values())
+
+        # Ordenar productos por ingresos (de mayor a menor)
+        productos.sort(key=lambda producto: producto.precio_venta_total, reverse=True)
+
+        total_ingresos = self.calcular_ingresos()
+        acumulado_ingresos = 0
+
+        clasificacion = {}
+
+        # Clasificar en A, B, C
+        for producto in productos:
+            porcentaje_acumulado = (acumulado_ingresos / total_ingresos) * 100 if total_ingresos > 0 else 0
+
+            if porcentaje_acumulado < 80:  # Categoría A (primer 80% de ingresos)
+                clasificacion[producto.nombre] = 'A'
+            elif porcentaje_acumulado < 95:  # Categoría B (entre 80% y 95%)
+                clasificacion[producto.nombre] = 'B'
+            else:  # Categoría C (último 5% de ingresos)
+                clasificacion[producto.nombre] = 'C'
+
+            acumulado_ingresos += producto.precio_venta_total
+
+        print("Clasificación ABC de los productos:")
+        for nombre, categoria in clasificacion.items():
+            print(f"Producto: {nombre}, Categoría: {categoria}")
 
 
 
