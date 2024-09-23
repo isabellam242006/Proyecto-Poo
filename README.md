@@ -85,6 +85,27 @@ classDiagram
 ```
 
 - - - - - - - - - - - - - - - - - -
+
+1. Clonar repositorio:
+```bash
+git clone https://github.com/Isabellam242006/Proyecto-Poo.git
+```
+
+2. Instalar entorno virtual:
+
+```bash
+pip install virtualenv
+```
+
+3. Crear carpeta del entorno virtual:
+```bash
+python -m venv env
+```
+
+4. Activar entorno virtual:
+- En Windows: `.\env\Scripts\activate`
+
+  
 Clases a utilizar:
 - Producto
 - Inventario
